@@ -19,7 +19,7 @@ tags: Jekyll TeXt
 
 写文章我使用的是 Markdown，语法的学习看的是[*Markdown*—入门指南 ](https://www.jianshu.com/p/1e402922ee32)。
 
-Github的使用可以看[Git和Github使用教程]({% post_url 2020-6-1-Git %})。
+Github的使用可以看[Git和Github使用教程]({% post_url 2020-06-01-Git %})。
 
 ## 正式开始
 
