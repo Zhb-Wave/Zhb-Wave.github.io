@@ -9,7 +9,7 @@ tags: Python
 
 ## 安装
 
-[官方安装指南](https://link.jianshu.com/?t=https://github.com/pyenv/pyenv#installation)
+[官方安装指南](https://github.com/pyenv/pyenv#installation)
 
 我们需要安装2个工具，*pyenv*和*pyenv-virtualenv*。
 
