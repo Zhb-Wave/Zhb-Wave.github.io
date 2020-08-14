@@ -64,7 +64,6 @@ deb-src http://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-proposed main multiverse
 deb-src http://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-security main multiverse restricted universe
 
 deb-src http://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-updates main multiverse restricted universe
-
 ```
 
 
@@ -92,8 +91,8 @@ deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ xenial-backports main 
 ### 2 更新源
 
 ```shell
-$ sudo apt-get update
-$ sudo apt-get upgrade
+$ sudo apt update
+$ sudo apt upgrade
 ```
 
 
@@ -118,7 +117,7 @@ $ sudo apt-get upgrade
 
 ### 0 测试已安装组件
 
-测试OpenCV
+### 测试OpenCV
 
 JetPack4.4中opencv已经升级到了4，使用下面命令检测是否安装
 
@@ -131,6 +130,137 @@ $ pkg-config opencv4 --modversion
 ```shell
 $ python3 -V
 ```
+
+### 1 安装pip
+
+使用pip来下载安装和管理pyhton的各种第三方库就非常方便了，后续在python上安装一般都通过pip
+
+```shell
+# 安装pip
+$ sudo apt install python3-pip
+
+# 升级pip
+$ pip3 install –upgrade pip
+```
+
+
+
+### 2 安装 JupyterLab
+
+[官方文档](https://jupyterlab.readthedocs.io/en/stable/index.html)
+
+```bash
+# 安装依赖
+$ sudo apt install nodejs npm
+
+# pip安装jupyter lab
+$ pip3 install jupyter jupyterlab
+```
+
+安装 jupyter lab 中提示错误：
+
+```shell
+c/_cffi_backend.c:15:10: fatal error: ffi.h: No such file or directory
+	#include <ffi.h>
+			^~~~~~~
+	compilation terminated.
+	error: command 'aarch64-linux-gnu-gcc' failed with exit status 1
+```
+
+解决方法，将缺少的组件安装上：
+
+```shell
+$ sudo apt install libffi-dev
+```
+
+安装完成没有错误后，重启
+
+```shell
+$ sudo reboot
+```
+
+Jupyter lab 已经安装好了，在命令行输入 `jupyter lab`，即可启动，在浏览器输入 localhost:8888 就可以访问 Jupyter lab了，但只能在本机访问，局域网其他主机还不能访问。
+
+先关闭已经启动的 Jupyter lab 进程，在当前终端窗口按 `ctrl+c`，再执行：
+
+```shell
+$ jupyter lab --generate-config
+```
+
+会看到如下输出信息，会提示配置文件保存路径，x-robot是用户名：
+
+```shell
+Writing default config to: /home/x-robot/.jupyter/jupyter_notebook_config.py
+```
+
+编辑上面的配置文件：
+
+```shell
+$ vi /home/x-robot/.jupyter/jupyter_notebook_config.py
+```
+
+找到下面两项，去掉前面的#，并修改成下面的参数
+
+```shell
+...
+c.NotebookApp.allow_origin = '*' # allow all origins 48行
+...
+c.NotebookApp.ip = '0.0.0.0' # listen on all IPs 207行
+```
+
+设置密码
+
+```shell
+$ jupyter notebook password
+[NotebookPasswordApp] Wrote hashed password to /home/x-robot/.jupyter/jupyter_notebook_config.json
+```
+
+设置成功会提示密码已经保存到配置文件中 `/home/x-robot/.jupyter/jupyter_notebook_config.json`
+
+这样就配置完成了，在终端中启动 `jupyter lab`，现在局域网主机也可以访问了，在浏览器输入 ip 地址加端口8888就可以访问了。
+
+最后一步添加自启动，没有自启动每次开机后都得手动开启，先确定安装位置:
+
+```shell
+$ which jupyter
+/home/x-robot/.local/bin/jupyter
+```
+
+创建 jupyter.service 文件
+
+```shell
+$ sudo vi /etc/systemd/system/jupyter.service
+```
+
+填入如下文件内容，注意修改 `User`、`ExesStart` 路径，并保存。
+
+```shell
+[Unit]
+Description=Jupyter Notebook
+
+[Service]
+Type=simple
+User=x-robot
+ExecStart=/home/x-robot/.local/bin/jupyter-lab
+
+[Install]
+WantedBy=default.target
+```
+
+启动服务
+
+```shell
+$ sudo systemctl enable jupyter
+$ sudo systemctl start jupyter
+```
+
+检查服务是否正常
+
+```shell
+$ sudo systemctl status jupyter
+```
+
+
 
 
 
