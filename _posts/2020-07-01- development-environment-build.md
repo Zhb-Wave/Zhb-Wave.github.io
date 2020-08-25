@@ -117,7 +117,7 @@ $ sudo apt upgrade
 
 ### 0 测试已安装组件
 
-### 测试OpenCV
+#### 测试OpenCV
 
 JetPack4.4中opencv已经升级到了4，使用下面命令检测是否安装
 
@@ -125,7 +125,7 @@ JetPack4.4中opencv已经升级到了4，使用下面命令检测是否安装
 $ pkg-config opencv4 --modversion
 ```
 
-测试Python3
+#### 测试Python3
 
 ```shell
 $ python3 -V
@@ -236,7 +236,7 @@ $ sudo vi /etc/systemd/system/jupyter.service
 
 ```shell
 [Unit]
-Description=Jupyter Notebook
+Description=Jupyter Lab
 
 [Service]
 Type=simple
@@ -265,9 +265,9 @@ $ sudo systemctl status jupyter
 2020/8/24 使用中遇到在JupyterLab 中 **ipywidgets** 无法正常显示，看[官方](https://ipywidgets.readthedocs.io/en/latest/user_install.html#installing-the-jupyterlab-extension)说明，并且安装的nodejs版本太旧，先对node进行升级：
 
 ```shell
-$ sudo npm cache clean -f 								# 清除npm缓存
-$ sudo npm install -g n 								# 安装nodejs的版本管理器n
-$ n stable 												# 升级到最新稳定版
+$ sudo npm cache clean -f   # 清除npm缓存
+$ sudo npm install -g n     # 安装nodejs的版本管理器n
+$ sudo n stable             # 升级到最新稳定版
 ```
 
 关闭终端重新运行后，nodejs就升级成功了，下面就可以安装JupyterLab 的拓展插件了：
