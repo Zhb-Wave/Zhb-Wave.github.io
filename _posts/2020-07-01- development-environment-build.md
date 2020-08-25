@@ -260,6 +260,28 @@ $ sudo systemctl start jupyter
 $ sudo systemctl status jupyter
 ```
 
+#### 补充
+
+2020/8/24 使用中遇到在JupyterLab 中 **ipywidgets** 无法正常显示，看[官方](https://ipywidgets.readthedocs.io/en/latest/user_install.html#installing-the-jupyterlab-extension)说明，并且安装的nodejs版本太旧，先对node进行升级：
+
+```shell
+$ sudo npm cache clean -f 								# 清除npm缓存
+$ sudo npm install -g n 								# 安装nodejs的版本管理器n
+$ n stable 												# 升级到最新稳定版
+```
+
+关闭终端重新运行后，nodejs就升级成功了，下面就可以安装JupyterLab 的拓展插件了：
+
+```shell
+$ jupyter labextension install @jupyter-widgets/jupyterlab-manager
+```
+
+插件安装成功后，ipywidgets 就可以正常使用。
+
+
+
+
+
 
 
 
