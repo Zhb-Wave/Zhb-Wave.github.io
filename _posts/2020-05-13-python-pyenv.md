@@ -26,6 +26,22 @@ $ brew install pyenv
 $ brew install pyenv-virtualenv
 ```
 
+### Windows10安装
+
+[安装指南](https://github.com/pyenv-win/pyenv-win)
+
+终于Windows上也可以用上pyenv了，安装过程也很简单：
+
+```powershell
+# 安装pyenv 指定安装路径
+pip3 install pyenv-win --target $HOME\.pyenv
+# 配置系统环境
+[System.Environment]::SetEnvironmentVariable('PYENV',$env:USERPROFILE + "\.pyenv\pyenv-win\","User")
+[System.Environment]::SetEnvironmentVariable('path', $HOME + "\.pyenv\pyenv-win\bin;" + $HOME + "\.pyenv\pyenv-win\shims;" + $env:Path,"User")
+```
+
+配置系统环境后重启就可以使用下面的命令了。
+
 ## 使用
 
 安装需要的python版本：
