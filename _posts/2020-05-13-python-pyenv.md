@@ -19,7 +19,7 @@ tags: Python
 
 *pyenv-virtualenv* 可以为每个项目创建单独的虚拟环境来解决上面的问题。
 
-在Mac上使用 [Homebrew](https://brew.sh) 进行安装：
+### 在Mac上使用 [Homebrew](https://brew.sh) 进行安装：
 
 ```shell
 $ brew install pyenv
