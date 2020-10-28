@@ -99,3 +99,26 @@ $ pyenv deactivate                                #退出虚拟环境
 
 [使用pyenv与pyenv-virtualenv管理python环境](https://www.jianshu.com/p/9f6a9456ad5f)
 
+## 离线安装
+
+由于国内的原因，在线安装python老是没有反应，我们可以使用离线方法来进行安装。进入pyenv目录，并创建chache文件夹
+
+```shell
+$ cd ~/.pyenv/
+$ mkdir cache
+```
+
+进入cache目录，使用wget获取离线包，也可下载离线包后放入目录
+
+```shell
+$ wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tar.xz
+# or
+$ wget https://mirrors.huaweicloud.com/python/3.8.5/Python-3.8.5.tar.xz
+```
+
+再执行安装命令就安装python完成了
+
+```shell
+$ pyenv install 3.8.5
+```
+
