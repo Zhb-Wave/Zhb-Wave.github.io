@@ -278,11 +278,32 @@ $ jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
 插件安装成功后，ipywidgets 就可以正常使用。
 
+### 3 安装matplotlib库
 
+```shell
+$ pip3 install matplotlib
+```
 
+### 4 安装PyTorch
 
+```shell
+# install OpenBLAS and OpenMPI
+$ sudo apt-get install libopenblas-base libopenmpi-dev
 
+# Python 2.7 (download pip wheel from above)
+$ pip install future torch-1.4.0-cp27-cp27mu-linux_aarch64.whl
 
+# Python 3.6 (download pip wheel from above)
+$ sudo apt-get install python3-pip
+pip3 install Cython
+pip3 install numpy torch-1.6.0-cp36-cp36m-linux_aarch64.whl
+```
 
+官方安装教程[Jetson Zoo - eLinux.org](https://elinux.org/Jetson_Zoo#PyTorch_.28Caffe2.29)，也可以使用 [install-pytorch.sh](https://github.com/dusty-nv/jetson-inference/blob/cb6d9248ccb94a720dee4b6ac52b8e4f3cb93b93/tools/install-pytorch.sh) 脚本来进行安装，但是由于墙的原因都不能成功下载PyTorch，需要使用梯子下载 ，或百度需要的版本注意_aarch64后缀
 
+### 5 安装pyserial
+
+```shell
+$ pip3 install pyserial
+```
 
