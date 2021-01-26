@@ -123,3 +123,19 @@ $ git commit -m "rebuild pages"
 ```
 
 最后将修改上传到仓库。
+
+#### 修改书籍后，重新提交
+
+我们切换到 master 分支下，添加新的章节后，应该如何提交呢。先在 master 分支下重新 build
+
+```bash
+$ gitbook build
+```
+
+然后切换到 gh-pages 分支，将 _book 目录下的文件拷贝出来，或者执行：
+
+```bash
+$ cp -r _book/* .
+```
+
+再重新提交修改，提交后需要等待3~5分钟，页面才能刷新。
