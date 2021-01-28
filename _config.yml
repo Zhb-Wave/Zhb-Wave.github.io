@@ -31,12 +31,12 @@ timezone: # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for
 ##############################
 author:
   type      : person
-  name      : Hypo
+  name      : Zhb
   url       : 
   avatar    : # 头像
   bio       : “不积跬步，无以至千里；不积小流，无以成江海。” -- 荀子《劝学篇》
-  email     : zhb_hypo@163.com
-  github    : Z-Hypo
+  email     : zhb_wave@163.com
+  github    : Zhb-Wave
 
 
 ## => GitHub Repository (if the site is hosted by GitHub)
