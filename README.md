@@ -4,7 +4,7 @@
 
 ## 致谢
 
-感谢[TeXt](https://github.com/kitian616/jekyll-TeXt-theme)提供模版。
+感谢 [Tian Qi](https://tianqi.name/jekyll-TeXt-theme) 提供的模版: https://github.com/kitian616/jekyll-TeXt-theme。
 
 ## License
 
