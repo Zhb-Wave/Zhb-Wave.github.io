@@ -99,6 +99,14 @@ $ pyenv deactivate                                #退出虚拟环境
 
 [使用pyenv与pyenv-virtualenv管理python环境](https://www.jianshu.com/p/9f6a9456ad5f)
 
+1. 在ubuntu安装python时可能会出错，那是因为pyenv使用编译的方式安装python, 需要安装编译所需的一些库
+
+```bash
+sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
+libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
+xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+```
+
 ## 离线安装
 
 由于国内的原因，在线安装python老是没有反应，我们可以使用离线方法来进行安装。进入pyenv目录，并创建chache文件夹
