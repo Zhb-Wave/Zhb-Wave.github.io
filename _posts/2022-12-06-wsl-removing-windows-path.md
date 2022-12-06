@@ -5,7 +5,7 @@ tags: wsl
 
 ### 没有修改前，wsl启动查看`PATH`变量内容如下，包含大量的`/mnt/c`这些都是Windows系统的`PATH`变量
 
-![windows path](../assets/images/windows_path.png)
+![windows path](https://github.com/Zhb-Wave/Zhb-Wave.github.io/blob/master/assets/images/windows_path.png)
 
 ### 可以通过修改`wsl.conf`文件来保持wsl系统环境变量的干净
 
